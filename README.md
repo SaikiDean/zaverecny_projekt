@@ -12,14 +12,6 @@ kde mají a případně si bude moct uživatel připnout recept do oblíbených
 - Databáze využívá SQlite3
 - Templates = šablony jsou napsány v HTML
 
-## Cíle
-(jestliže se vyskytuje u některého z cílů křížek, stále se na daném cíli pracuje)
-- data (recepty) se ukládají do databáze ✔
-- třídění receptů dle kategorie ✔
-- funkční login a registrace ✔
-- správné zobrazování obrázků ×
-- profil uživatele a přidávání si receptů do oblíbených × 
-- slušný design ×
 
 ## Spuštění projektu pro Windows:
 ```
