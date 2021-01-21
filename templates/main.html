@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for recipe in recipes %}
+	<div class="row">
+		<div class="col-md-4 text-center">
+			<a href="/recipe/{{ recipe.pk }}">
+				{% if recipe.Recipe_Img %}
+			<img src="{{ recipe.Recipe_Img.url }}" alt="{{ recipe.Recipe_Img.url }}" class="thumbnail"
+				 width="50%">
+				{% endif %}
+			</a>
+		</div>
+		<div class="col-md-8">
+			<h3>
+				<a href="/recipe/{{ recipe.pk }}">- {{ recipe.Recipe_Title }} -</a><br>
+				<small>{{ recipe.Recipe_Date }}</small>
+			</h3>
+			<a href="#">{{ recipe.Recipe_Author }}</a>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}

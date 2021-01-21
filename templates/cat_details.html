@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 class="text-center">{{ category.Cat_Name }}</h1>
+    <ul>
+    {% for recipe in recipes %}
+        {% if recipe.Recipe_Cat.Cat_Name == category.Cat_Name %}
+         <li style="font-size:2em;">
+            <a href="{% url 'details' pk=recipe.pk %}">{{ recipe.Recipe_Title }}</a>
+         </li>
+        {% endif %}
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,115 @@
+{% load static %}
+<!doctype html>
+<html class="no-js" lang="cs">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Zdravé recepty</title>
+      <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+      <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+      <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+        
+
+      <script>
+        $(document).foundation();
+      </script>
+    </head>
+
+    <body style="background-color:#EEE;">
+    <!-- Start Nav Bar -->
+     <div class="callout large primary" style="margin-bottom:0px;">
+      <nav class="navbar navbar-expand-lg">
+        <div class="navbar-collapse row" id="navbarNav">
+        <ul class="navbar-nav">
+            <div class="navbar-header">
+                <a class="nav-link" href="/"><h5>Recepty</h5></a>
+            </div>
+            <li class="nav-item">
+                <span style="font-size: 1.4em; font-weight: bold; color:#B3E0FF"> | </span>
+            </li>
+	        {% if user.is_authenticated %}
+				<li class="nav-link"><a href="/novy">Přidat recept</span></a></li>
+			{% endif %}
+            <!-- bývalý styl kategorií -->
+            <!--
+            <li class="nav-item">
+                <a class="nav-link" href="/breakfast">Snídaně a svačiny</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/lunch">Obědy a večeře</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/sweets">Zdravé mlsání</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/soup">Polévky</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/salad">Saláty a přílohy</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/drinks">Nápoje</a>
+            </li>-->
+            {% for category in categories %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/catdetails/{{ category.pk }}">{{ category.Cat_Name }}</a>
+                </li>
+            {% endfor %}
+            <li class="nav-item">
+                <span style="font-size: 1.4em; font-weight: bold; color:#B3E0FF"> | </span>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/addcat">Přidat novou kategorii</a>
+            </li>
+            <li>
+                <a class="nav-link" href="/catlist">Další kategorie</a>
+            </li>
+        </ul>
+        </div>
+        <div class="navbar-nav navbar-right row">
+          <ul class="navbar-nav">
+               {% if user.is_authenticated %}
+                      <li class="nav-item">
+                            <a class="nav-link" href="/profile">Profil</a>
+                        </li>
+              <li class="nav-item">
+                            <a class="nav-link" href="/logout">Odhlásit</a>
+                        </li>
+                       {% else %}
+              <li class="nav-item">
+          <a class="nav-link" href="/login"><button class="btn btn-success">Login</button></a>
+              </li>
+              <li class="nav-item">
+          <a class="nav-link nav justify-content-end" href="/register">
+              <button class="btn btn-info">Registrace</button></a>
+              </li>
+              {% endif %}
+          </ul>
+        </div>
+    </nav>
+    <!-- End Top Bar -->
+    <hr style="border: 2px solid #B3E0FF; margin-top: 0.2em;">
+      <div class="text-center">
+        <h1 style="font-family: Lobster; font-size:4em;">Zdravé recepty</h1>
+        <p class="subheader text-center" style="font-family: Lobster">
+            Pro zdravý život jen to nejlepší</p>
+      </div>
+    </div>
+
+    <main class="container" style="background-color:white; padding:55px; padding-top:15px;">
+        <!--<div class="row medium-8 large-7 columns">-->
+          <div class="blog-post">
+                {% block content %}
+                {% endblock %}
+          </div>
+
+    </main>
+  </body>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</html>

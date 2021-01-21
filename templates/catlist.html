@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    .categories li { font-size: 1.8em; }
+</style>
+<ul class="categories">
+    {% for category in cats %}
+    <li>
+        <a href="{% url 'cat_details' pk=category.pk %}">
+            {{ category.Cat_Name }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
