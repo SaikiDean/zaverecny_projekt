@@ -23,20 +23,20 @@ kde mají a případně si bude moct uživatel připnout recept do oblíbených
 
 ## Spuštění projektu pro Windows:
 ```
-git clone https://github.com/SaikiDean/final_project
-cd final_project
-python -m venv myvenv
-myvenv\Scripts\activate
+git clone https://github.com/SaikiDean/zaverecny_projekt
+cd zaverecny_projekt
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
 python manage.py runserver
 ```
 
 ## Spuštění projektu pro Linux
 ```
-git clone https://github.com/SaikiDean/final_project
-cd final_project
-virtualenv -p python myvenv
-source myvenv/bin/activate
+git clone https://github.com/SaikiDean/zaverecny_projekt
+cd zaverecny_projekt
+virtualenv -p python venv
+source venv/bin/activate
 pip install -r requirements.txt
 python manage.py runserver
 ```
